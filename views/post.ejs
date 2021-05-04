@@ -23,6 +23,12 @@
         <%}%>
       </div>
     </div>
+    <%if(post.image){ %>
+    <div class="col-sm-3 mt-5">
+      <img class="img-fluid" src="../<%= post.image%>" />
+    </div>
+    <%}%>
+
     <div class="col-sm-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>

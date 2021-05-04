@@ -15,12 +15,18 @@
         </div>
         <div class="mt-5">
           <h2>Add a Crumb</h2>
-<form action="/post/createPost" method="POST">
-  <div class="mb-3">
-    <input type="text" placeholder="Crumb" name="crumb">
-    <input type="submit" class="btn" value="I'm feeling Crumby!">
-  </div>
-</form>
+
+          <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <div class="mb-3">
+              <input type="text" placeholder="Crumb" name="crumb">
+            </div>
+            <div class="mb-3">
+              <label for="imgUpload" class="form-label">Crumby Image or Nah</label>
+              <input type="file" class="form-control" id="imageUpload" name="file">
+            </div>
+            <input type="submit" class="btn" value="I'm feeling Crumby!">
+          </form>
+
         </div>
       </div>
       <div class="col col-lg-2">
@@ -31,13 +37,13 @@
                 <p class="border"><%= posts[i].crumb%></p>
               </a>
             </li>
-          <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
+            <% } %>
+          </ul>
+          <div class="row justify-content-center mt-5">
+            <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<%- include('partials/footer') -%>
+  <%- include('partials/footer') -%>

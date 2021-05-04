@@ -1,5 +1,5 @@
 <%- include('partials/header') -%>
-  
+
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
@@ -10,6 +10,11 @@
             <a href="/post/<%= posts[i]._id%>">
               <p><%= posts[i].crumb%></p>
             </a>
+            <%if(posts[i].image){ %>
+            <div class="col-sm-3 mt-5">
+              <img class="img-fluid" src="../<%= posts[i].image%>" />
+            </div>
+            <%}%>
           </li>
         <% } %>
         </ul>
