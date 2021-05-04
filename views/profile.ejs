@@ -1,0 +1,43 @@
+<%- include('partials/header') -%>
+
+
+<div class="container-fluid mt-5">
+  <div class="container-fluid mt-5">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2 mt-5">
+        <img class="img-thumbnail" id="profileimg" src="/imgs/crumbtrail.jpg" alt="a trail of breadcrumbs">
+      </div>
+      <div class="col-md-auto">
+        <div>
+          <p><strong>User Name</strong>: <%= user.userName %></p>
+          <p><strong>Email</strong>: <%= user.email %></p>
+          <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+        </div>
+        <div class="mt-5">
+          <h2>Add a Crumb</h2>
+<form action="/post/createPost" method="POST">
+  <div class="mb-3">
+    <input type="text" placeholder="Crumb" name="crumb">
+    <input type="submit" class="btn" value="I'm feeling Crumby!">
+  </div>
+</form>
+        </div>
+      </div>
+      <div class="col col-lg-2">
+        <ul class="row list-unstyled">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <li class="col-6 justify-content-between">
+              <a href="/post/<%= posts[i]._id%>">
+                <p class="border"><%= posts[i].crumb%></p>
+              </a>
+            </li>
+          <% } %>
+        </ul>
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>
