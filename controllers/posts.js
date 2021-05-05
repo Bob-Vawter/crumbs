@@ -1,4 +1,5 @@
 const Post = require('../models/Post')
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
   getFeed: async (req,res)=>{
@@ -21,31 +22,22 @@ module.exports = {
     }
   },
   createPost: async (req, res)=>{
-    console.log(req.body)
+    let result = ''
     try{
-      req.file.filename
-      var imageExists = true
+      result = await cloudinary.uploader.upload(req.file.path);
     }catch(err){
-      var imageExists = false
+      console.log("No Image")
     }
     try{
-      if(imageExists){
-        await Post.create({
-          crumb: req.body.crumb,
-          image: '/uploads/' + req.file.filename,
-          likes: 0,
-          user: req.user.id,
-          userName: req.user.userName
-        })
-      } else {
-        await Post.create({
-          crumb: req.body.crumb,
-          //image: '/uploads/' + req.file.filename,
-          likes: 0,
-          user: req.user.id,
-          userName: req.user.userName
-        })
-      }
+      await Post.create({
+        crumb: req.body.crumb,
+        image: result.secure_url,
+        cloudinaryId: result.public_id,
+        likes: 0,
+        user: req.user.id,
+        userName: req.user.userName
+      })
+
       console.log('Post has been added!')
       res.redirect('/profile')
     }catch(err){
@@ -65,14 +57,21 @@ module.exports = {
         console.log(err)
       }
     },
-    deletePost: async (req, res)=>{
-      try{
-        console.log(req.params)
-        await Post.findOneAndDelete({_id:req.params.id})
-        console.log('Deleted Post')
-        res.redirect('/profile')
-      }catch(err){
-        res.redirect('/profile')
+    deletePost: async (req, res) => {
+      try {
+        // Find post by id
+        let post = await Post.findById({ _id: req.params.id });
+        // Delete image from cloudinary
+        try{
+          await cloudinary.uploader.destroy(post.cloudinaryId);
+        } catch(err){
+        }
+        // Delete post from db
+        await Post.remove({ _id: req.params.id });
+        console.log("Deleted Post");
+        res.redirect("/profile");
+      } catch (err) {
+        res.redirect("/profile");
       }
-    }
+    },
   }
