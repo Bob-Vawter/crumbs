@@ -5,13 +5,13 @@
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="border col-12 justify-content-between mt-3">
-              <h5><%= posts[i].userName%></h5><span>  <%= posts[i].createdAt.toLocaleDateString()%></span>
+              <h5 class = "mt-1"><%= posts[i].userName%></h5><span>  <%= posts[i].createdAt.toLocaleDateString()%></span>
               <span> -  <%= posts[i].createdAt.toLocaleTimeString("en-US")%></span>
             <a href="/post/<%= posts[i]._id%>">
               <p><%= posts[i].crumb%></p>
             </a>
             <%if(posts[i].image){ %>
-            <div class="col-sm-3 mt-5">
+            <div class="col-sm-5 mt-2 mb-2">
               <img class="img-fluid" src="<%= posts[i].image%>" />
             </div>
             <%}%>
