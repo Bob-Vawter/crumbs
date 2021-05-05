@@ -1,17 +1,23 @@
-# Install
+# Crumbs
 
-`npm install`
+The best thing since sliced bread. Social media platform.
 
----
+**Link to project:** https://toaststack.herokuapp.com/
+![alt tag](https://bobvawter.netlify.app/images/banner.jpg)
+## How It's Made:
+**Tech used:** HTML, Bootstrap, Node.js, MongoDB, CSS, Mongoose, Cloudinary, Heroku, Passport
 
-# Things to add
+## Portfolio:
 
-- Create a `.env` file and add the following as `key: value`
-  - PORT: 2121 (can be any port example: 3000)
-  - DB_STRING: `your database URI`
+https://bobvawter.netlify.app
 
----
+## Examples:
+Take a look at a couple examples from portfolio:
 
-# Run
+**Crumbs:** https://toaststack.herokuapp.com/
 
-`npm start`
+**Calculator:** https://simplecalculator-app.netlify.app/
+
+**Tic Tac Toe:** https://tictactoe-bob.netlify.app/
+
+**Rock Paper Scissors:** https://rockpaperscissors-app.netlify.app/
