@@ -7,6 +7,9 @@ body{
   color: antiquewhite;
   border: none;
 }
+.btn-liked{
+  color: #f03566;
+}
 
 #mainimg{
   margin-top: -20%;
