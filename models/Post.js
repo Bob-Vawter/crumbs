@@ -14,7 +14,7 @@ const PostSchema = new mongoose.Schema({
     require: false,
   },
   likes: {
-    type: Number,
+    type: Array,
     required: true,
   },
   user: {

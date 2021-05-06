@@ -33,7 +33,7 @@ module.exports = {
         crumb: req.body.crumb,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        likes: 0,
+        likes: [],
         user: req.user.id,
         userName: req.user.userName
       })
@@ -49,8 +49,9 @@ module.exports = {
     try{
       await Post.findOneAndUpdate({_id:req.params.id},
         {
-          $inc : {'likes' : 1}
+          $addToSet : {'likes' : req.user.id},
         })
+
         console.log('Likes +1')
         res.redirect(`/post/${req.params.id}`)
       }catch(err){
