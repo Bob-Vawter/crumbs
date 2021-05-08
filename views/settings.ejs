@@ -1,0 +1,24 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <div>
+        <div class="mb-5">
+          <p><strong>User Name</strong>: <%= user.userName %></p>
+          <button type="button" name="button" class="col btn btn-primary mb-3">Change User Name</button>
+          <p><strong>Email</strong>: <%= user.email %></p>
+          <button type="button" name="button" class="col btn btn-primary mb-3">Change Email</button>
+        </div>
+        <a href="/logout" class="col btn btn-primary">Logout</a>
+        <a href="/profile" class = "col btn btn-primary">Return to Profile</a>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

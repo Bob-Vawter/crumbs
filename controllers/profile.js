@@ -8,5 +8,12 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+    getSettings: async (req,res)=>{
+      try{
+        res.render('settings.ejs', {user: req.user})
+      }catch(err){
+        console.log(err)
+      }
     }
-}    
+}
