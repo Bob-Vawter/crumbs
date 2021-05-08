@@ -5,7 +5,6 @@ const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/profile", ensureAuth, profileController.getProfile);
-router.get("/settings", ensureAuth, profileController.getSettings);
 router.get("/feed", ensureAuth, postsController.getFeed);
 
 module.exports = router

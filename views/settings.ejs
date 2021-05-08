@@ -8,9 +8,19 @@
       <div>
         <div class="mb-5">
           <p><strong>User Name</strong>: <%= user.userName %></p>
-          <button type="button" name="button" class="col btn btn-primary mb-3">Change User Name</button>
+          <form action="settings/changeUserName" method="POST">
+            <div class="mb-3">
+              <input type="text" placeholder="New User Name" name="newUserName">
+            </div>
+            <input type="submit" class="col btn btn-primary mb-3" value="Change User Name">
+          </form>
           <p><strong>Email</strong>: <%= user.email %></p>
-          <button type="button" name="button" class="col btn btn-primary mb-3">Change Email</button>
+          <form action="settings/changeUserEmail" method="POST">
+            <div class="mb-3">
+              <input type="text" placeholder="New Email Address" name="newUserEmail">
+            </div>
+            <input type="submit" class="col btn btn-primary mb-3" value="Change Email">
+          </form>
         </div>
         <a href="/logout" class="col btn btn-primary">Logout</a>
         <a href="/profile" class = "col btn btn-primary">Return to Profile</a>

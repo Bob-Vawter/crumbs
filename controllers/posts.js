@@ -38,7 +38,7 @@ module.exports = {
         crumb: req.body.crumb,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        likes: 0,
+        likes: [],
         user: req.user.id
       })
 
