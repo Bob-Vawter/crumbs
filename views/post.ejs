@@ -5,14 +5,14 @@
       <h2><%= post.crumb %></h2>
       <div class="row justify-content-between">
         <form
-          class="col-1"
+          class="col-3"
           action="/post/likePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
           <button class=" <%if(post.likes.includes(user.id)){ %> btn-liked <%}%>
-          btn btn-primary fa fa-heart" type="submit"></button>
+          btn btn-primary fa fa-heart" type="submit"></button><%= post.likes.length %>
         </form>
-        <h3 class="col-3">Likes: <%= post.likes.length %></h3>
+        <!-- <h6 class="col-3" id="likes">Likes: <%= post.likes.length %></h6> -->
         <%if(post.user == user.id){ %>
         <form
           action="/post/deletePost/<%= post.id %>?_method=DELETE"

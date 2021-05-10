@@ -2,6 +2,10 @@
 
   <div class="container">
     <div class="row justify-content-center mt-5">
+    <div class="col">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+      <a href="/logout" class="btn btn-primary">Logout</a>
+    </div>
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="border col-12 justify-content-between mt-3">
@@ -22,9 +26,9 @@
           method="POST"
         >
           <button class=" <%if(posts[i].likes.includes(user.id)){ %> btn-liked <%}%>
-          btn btn-primary fa fa-heart" type="submit"></button>
+          btn btn-primary fa fa-heart" type="submit" ></button><%= posts[i].likes.length %>
               </form>
-                      <h3 class="col-3">Likes: <%= posts[i].likes.length %></h3>
+                     <!-- <h6 class="col-3" id="likes">Likes: <%= posts[i].likes.length %></h6> -->
             </div>
           </li>
         <% } %>
