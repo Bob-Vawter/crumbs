@@ -5,6 +5,16 @@
     <div class="col-sm">
     </div>
     <div class="col-sm">
+      <% if (locals.messages.errors) { %>
+          <% messages.errors.forEach( el => { %>
+              <div class="alert alert-danger"><%= el.msg %></div>
+          <% }) %>
+      <% } %>
+      <% if (locals.messages.info) { %>
+          <% messages.info.forEach( el => { %>
+              <div class="alert alert-info"><%= el.msg %></div>
+          <% }) %>
+      <% } %>
       <div>
         <div class="mb-5">
           <p><strong>User Name</strong>: <%= user.userName %></p>
